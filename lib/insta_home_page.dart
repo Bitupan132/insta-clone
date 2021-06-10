@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:insta_clone/insta_body.dart';
 
 class InstaHomePage extends StatelessWidget {
   @override
@@ -26,6 +27,7 @@ class InstaHomePage extends StatelessWidget {
             ),
           ],
         ),
+        body: InstaBody(),
         bottomNavigationBar: BottomAppBar(
           child:
               Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
