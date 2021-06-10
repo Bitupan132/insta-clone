@@ -1,10 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class InstaPosts extends StatelessWidget {
-  final String myDpUrl =
-      'https://images.pexels.com/photos/4348799/pexels-photo-4348799.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
-
+class InstaPosts extends StatefulWidget {
   final String accountName;
   final String dpuRl;
   final String uploadUrl;
@@ -13,6 +10,17 @@ class InstaPosts extends StatelessWidget {
       {required this.accountName,
       required this.uploadUrl,
       required this.dpuRl});
+
+  @override
+  _InstaPostsState createState() => _InstaPostsState();
+}
+
+class _InstaPostsState extends State<InstaPosts> {
+  final String myDpUrl =
+      'https://images.pexels.com/photos/4348799/pexels-photo-4348799.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500';
+
+  bool isFavorite = false;
+  bool isBookmarked = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +40,7 @@ class InstaPosts extends StatelessWidget {
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: NetworkImage(dpuRl),
+                      image: NetworkImage(widget.dpuRl),
                     ),
                   ),
                 ),
@@ -40,7 +48,7 @@ class InstaPosts extends StatelessWidget {
                   width: 16,
                 ),
                 Text(
-                  accountName,
+                  widget.accountName,
                   style: TextStyle(fontWeight: FontWeight.bold),
                 ),
               ],
@@ -51,7 +59,7 @@ class InstaPosts extends StatelessWidget {
       ),
       // 2nd row
       Image.network(
-        uploadUrl,
+        widget.uploadUrl,
         fit: BoxFit.cover,
       ),
       // 3rd row
@@ -63,7 +71,21 @@ class InstaPosts extends StatelessWidget {
               SizedBox(
                 width: 12,
               ),
-              Icon(Icons.favorite_border),
+              GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      if (isFavorite) {
+                        isFavorite = false;
+                      } else
+                        isFavorite = true;
+                    });
+                  },
+                  child: isFavorite
+                      ? Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
+                      : Icon(Icons.favorite_border)),
               SizedBox(
                 width: 12,
               ),
@@ -76,7 +98,20 @@ class InstaPosts extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
-            child: Icon(Icons.bookmark_border_outlined),
+            child: GestureDetector(
+                onTap: () {
+                  setState(() {
+                    if (isBookmarked) {
+                      isBookmarked = false;
+                    } else
+                      isBookmarked = true;
+                  });
+                },
+                child: isBookmarked
+                    ? Icon(
+                        Icons.bookmark,
+                      )
+                    : Icon(Icons.bookmark_border_outlined)),
           )
         ],
       ),
