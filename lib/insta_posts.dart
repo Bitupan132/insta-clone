@@ -58,9 +58,18 @@ class _InstaPostsState extends State<InstaPosts> {
         ),
       ),
       // 2nd row
-      Image.network(
-        widget.uploadUrl,
-        fit: BoxFit.cover,
+      GestureDetector(
+        onDoubleTap: () {
+          setState(() {
+            if (!isFavorite) {
+              isFavorite = true;
+            }
+          });
+        },
+        child: Image.network(
+          widget.uploadUrl,
+          fit: BoxFit.cover,
+        ),
       ),
       // 3rd row
       Row(
