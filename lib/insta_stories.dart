@@ -2,6 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
 class InstaStories extends StatelessWidget {
+  static List dpList = [
+    'https://images.pexels.com/photos/4348799/pexels-photo-4348799.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    'https://images.pexels.com/photos/1130626/pexels-photo-1130626.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    'https://images.pexels.com/photos/4316425/pexels-photo-4316425.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+    'https://images.pexels.com/photos/3746287/pexels-photo-3746287.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    'https://images.pexels.com/photos/3851325/pexels-photo-3851325.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+    'https://images.pexels.com/photos/2661536/pexels-photo-2661536.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+  ];
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
@@ -11,14 +19,19 @@ class InstaStories extends StatelessWidget {
               alignment: Alignment.bottomRight,
               children: [
                 Container(
-                    margin: EdgeInsets.symmetric(horizontal: 6),
-                    height: 68,
-                    width: 68,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: NetworkImage(
-                                'https://media-exp1.licdn.com/dms/image/C4E03AQE426k4qPjNoQ/profile-displayphoto-shrink_200_200/0/1621858137081?e=1627516800&v=beta&t=XhTDklxP_57793m7_XiwEPZvyhaRNHGNxnO0RxkVAQo')))),
+                  margin: EdgeInsets.symmetric(horizontal: 6),
+                  height: 68,
+                  width: 68,
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(
+                        dpList[i],
+                      ),
+                    ),
+                  ),
+                ),
                 i == 0
                     ? Positioned(
                         right: 10,
