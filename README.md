@@ -2,7 +2,12 @@
 
 In this Flutter project I have created a clone of Instagram. 
 
-## Screenshots
+# Screenshots
+## Demo 1
+![](./ss1.jpg)
+
+## Demo 2
+![](./ss2.jpg)
 
 ## TODO
 1. Add Login feature
